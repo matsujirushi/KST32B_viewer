@@ -40,11 +40,15 @@ static void KST32B_drawChar(unsigned short code, signed short x, signed short y,
                         x2 = x1;
                     } else if ( c >= 0x40 && c <= 0x5B ) {
                         x2 = c - 0x40 + 0;
+// Here! ---
                         tft.drawLine((int32_t)(x+x1*p), (int32_t)(y+(KST32B_HEIGHT-y1)*p), (int32_t)(x+x2*p), (int32_t)(y+(KST32B_HEIGHT-y2)*p), TFT_WHITE);
+// ---------
                         x1 = x2;
                     } else if ( c >= 0x5E && c <= 0x5F ) {
                         x2 = c - 0x5E + 28;
+// Here! ---
                         tft.drawLine((int32_t)(x+x1*p), (int32_t)(y+(KST32B_HEIGHT-y1)*p), (int32_t)(x+x2*p), (int32_t)(y+(KST32B_HEIGHT-y2)*p), TFT_WHITE);
+// ---------
                         x1 = x2;
                     } else if ( c >= 0x60 && c <= 0x7D ) {
                         x2 = c - 0x60 + 0;
@@ -56,7 +60,9 @@ static void KST32B_drawChar(unsigned short code, signed short x, signed short y,
                         y2 = y1;
                     } else if ( c >= 0xC0 && c <= 0xDF ) {
                         y2 = c - 0xC0 + 0;
+// Here! ---
                         tft.drawLine((int32_t)(x+x1*p), (int32_t)(y+(KST32B_HEIGHT-y1)*p), (int32_t)(x+x2*p), (int32_t)(y+(KST32B_HEIGHT-y2)*p), TFT_WHITE);
+// ---------
                         x1 = x2;
                         y1 = y2;
                     }
@@ -86,14 +92,18 @@ void KST32B_drawString(unsigned char *s, signed short x, signed short y, double 
             s++;
             w = KST32B_WIDTH_S;
         }
+// Here! ---
 #if 0
         if ( (signed short)(x+w*p) > TFT_WIDTH ) {
             x = 0;
             y = y + (signed short)(KST32B_HEIGHT*p);
         }
 #endif
+// ---------
         if ( code != 0x20 ) {
+// Here! ---
             KST32B_drawChar(code, x, y, p);
+// ---------
         }
         x = x + (signed short)(w*p);
     }
