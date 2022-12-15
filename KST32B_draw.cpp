@@ -5,6 +5,9 @@
 #include "Misc.h"
 #include "Display.h"
 
+#include "DisplayPlotter.hpp"
+static DisplayPlotter DisplayPlotter_;
+
 static void KST32B_drawChar(unsigned short code, signed short x, signed short y, double p)
 {
     char           strLine[256];
@@ -41,13 +44,13 @@ static void KST32B_drawChar(unsigned short code, signed short x, signed short y,
                     } else if ( c >= 0x40 && c <= 0x5B ) {
                         x2 = c - 0x40 + 0;
 // Here! ---
-                        tft.drawLine((int32_t)(x+x1*p), (int32_t)(y+(KST32B_HEIGHT-y1)*p), (int32_t)(x+x2*p), (int32_t)(y+(KST32B_HEIGHT-y2)*p), TFT_WHITE);
+                        DisplayPlotter_.DrawLine(x+x1*p, y+(KST32B_HEIGHT-y1)*p, x+x2*p, y+(KST32B_HEIGHT-y2)*p);
 // ---------
                         x1 = x2;
                     } else if ( c >= 0x5E && c <= 0x5F ) {
                         x2 = c - 0x5E + 28;
 // Here! ---
-                        tft.drawLine((int32_t)(x+x1*p), (int32_t)(y+(KST32B_HEIGHT-y1)*p), (int32_t)(x+x2*p), (int32_t)(y+(KST32B_HEIGHT-y2)*p), TFT_WHITE);
+                        DisplayPlotter_.DrawLine(x+x1*p, y+(KST32B_HEIGHT-y1)*p, x+x2*p, y+(KST32B_HEIGHT-y2)*p);
 // ---------
                         x1 = x2;
                     } else if ( c >= 0x60 && c <= 0x7D ) {
@@ -61,7 +64,7 @@ static void KST32B_drawChar(unsigned short code, signed short x, signed short y,
                     } else if ( c >= 0xC0 && c <= 0xDF ) {
                         y2 = c - 0xC0 + 0;
 // Here! ---
-                        tft.drawLine((int32_t)(x+x1*p), (int32_t)(y+(KST32B_HEIGHT-y1)*p), (int32_t)(x+x2*p), (int32_t)(y+(KST32B_HEIGHT-y2)*p), TFT_WHITE);
+                        DisplayPlotter_.DrawLine(x+x1*p, y+(KST32B_HEIGHT-y1)*p, x+x2*p, y+(KST32B_HEIGHT-y2)*p);
 // ---------
                         x1 = x2;
                         y1 = y2;
