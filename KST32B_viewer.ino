@@ -69,19 +69,20 @@ void loop()
     
     tft.fillScreen(TFT_BLACK);
     KST32B_drawString((unsigned char *)" Wio Terminal Plotter", 0, 0, 0.8);
-    KST32B_drawString((unsigned char *)" $B$3$NG=NO$OI=<($G$-$k$+$J(B", 0, 28, 0.8);    while (digitalRead(WIO_5S_PRESS) != 0);
+    KST32B_drawString((unsigned char *)" with KST32B", 0, 28, 0.8);
+    while (digitalRead(WIO_5S_PRESS) != 0);
     delay(100);
     while (digitalRead(WIO_5S_PRESS) == 0);
     
     plotter_penUp();
     plotter_movePos(0, 0);
 //    KST32B_plotString((unsigned char *)"Wio Terminal Polotter", 0, 0, 1.5);
-    KST32B_plotString((unsigned char *)"$B~A(I=$B~A(I=$B~A(I=(Bj$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=(Bj$B~A(I=$B~A(I=(B", 0,   0, 1.5);
-    KST32B_plotString((unsigned char *)"  $B~A(I=$B~A(I=(B          $B~A(I=(Bp  ", 0,  60, 1.5);
-    KST32B_plotString((unsigned char *)"$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=(B", 0, 120, 1.5);
-    KST32B_plotString((unsigned char *)"$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=$B~A(I=(B", 0, 330, 1.5);
-    KST32B_plotString((unsigned char *)"  $B~A(I=(Bp          $B~A(I=$B~A(I=(B  ", 0, 390, 1.5);
-    KST32B_plotString((unsigned char *)"$B~A(I=$B~A(I=$B~A(I=(Bj$B~A(I=$B~A(I=$B~A(I=$B~A(I=J$B6q(I?=$B~A(I=$B~A(I=(Bj$B~A(I=$B~A(I=(B", 0, 450, 1.5);
+    KST32B_plotString((unsigned char *)"香桂銀金王金銀桂香", 0,   0, 1.5);
+    KST32B_plotString((unsigned char *)"  飛          角  ", 0,  60, 1.5);
+    KST32B_plotString((unsigned char *)"歩歩歩歩歩歩歩歩歩", 0, 120, 1.5);
+    KST32B_plotString((unsigned char *)"歩歩歩歩歩歩歩歩歩", 0, 330, 1.5);
+    KST32B_plotString((unsigned char *)"  角          飛  ", 0, 390, 1.5);
+    KST32B_plotString((unsigned char *)"香桂銀金玉金銀桂香", 0, 450, 1.5);
     while (digitalRead(WIO_5S_PRESS) != 0);
     delay(100);
     while (digitalRead(WIO_5S_PRESS) == 0);
